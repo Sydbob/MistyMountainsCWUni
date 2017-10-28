@@ -58,15 +58,44 @@ public class Main
 		club.GetClimbers().get(1).HighestMountain();
 		
 		clubStats.WelcomeMessage();
-		clubStats.SetOne(clubStats.GetExitApplication());
+		clubStats.SetExitApplication(1);
 		
 		do 
 		{
 			clubStats.DisplayMenu();
 			clubStats.AskMenuOption();
 			
+			//add climber menu option
+			if (clubStats.GetUserOption() == 1)
+			{
+				clubStats.DisplayAddClimberMenu();
+				char userResponse;
+				//ask for info about the climber and make a new climber obj
+				do
+				{
+					club.AddClimber();
+					userResponse = clubStats.AskYesNo("Would you like to add a mountain to current climber?");
+					while (userResponse == 'y')
+					{
+						club.GetClimbers().get(club.GetClimbers().size() - 1).AddMountain();
+						userResponse = clubStats.AskYesNo("Would you like to add a mountain to current climber?");
+					}
+					userResponse = clubStats.AskYesNo("Add another climber? ");
+				} while (userResponse == 'y');
+				
+				out.println("Done adding climbers. Going back to main menu");
+				clubStats.SetExitApplication(1);
+				
+			}
+			
+			//elseif
+			
+			
+			
+			
 		} while (clubStats.GetExitApplication() == 1);
 		
+			
 		//exit message
 		out.println("\nThank you for using Misty Mountains Club application!");
 		out.println("################ END OF APPLICATION ##############");

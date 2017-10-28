@@ -6,11 +6,9 @@ public class ClubStats
 {
 	ClubStats(){}
 	
+	public void SetExitApplication(int value){exitApplication = value;}
 	public int GetExitApplication() {return exitApplication;}
-	public int GetUserOption() {return userOptionChoice;}
-	
-	void SetOne(int integer) {integer =1;}
-	void SetZero(int integer) {integer = 0;}
+	public int GetUserOption(){return userOptionChoice;}
 	
 	private int userOptionChoice;
 	private int exitApplication;
