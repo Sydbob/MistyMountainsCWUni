@@ -32,6 +32,18 @@ public class Climber
 	Scanner in = new Scanner(System.in);
 	Scanner jin = new Scanner(System.in);
 	
+	//method that tries to parse string to int and returns false if it can't
+	public boolean TryParseInt(String value)
+	{
+		try {
+			Integer.parseInt(value); 
+			return true;
+		} catch (NumberFormatException e)
+		{
+			return false;
+		}
+	}
+	
 	//method that adds a mountain to climber's list of mountains climbed
 	public void AddMountain()
 	{
@@ -93,16 +105,37 @@ public class Climber
 	//method that asks and sets climber's age
 	public int AskAge()
 	{
-		int age;
+		String age;
+		int climberAge = 0;
+		int i =0;
+		
 		System.out.println("Enter age (valid range is 1 - 120): ");
-		age = in.nextInt();
-		while( age < 1 || age > 120)
+		age = in.next();
+		//a loop that will check validity of the input, 0 = input not valid
+		while( i == 0 )
 		{
-			System.out.print("Enter age (valid range is 1- 120): ");
-			age = in.nextInt();
-		}
-		this.age = age;
-		return age;
+			//check if input is an int, keep asking if not
+			while (!TryParseInt(age))
+			{
+				System.out.print("Enter age (valid range is 1- 120): ");
+				age = in.next();
+			}
+			//if it's valid input, first convert age to int 
+			climberAge = Integer.parseInt(age);
+			//check if it's in valid range
+			if (climberAge < 0 || climberAge > 120)
+			{
+				System.out.print("Enter age (valid range is 1- 120): ");
+				age = in.next();
+				i = 0; //if range is not valid back to start of the loop
+			}
+			else
+			{
+				i = 1;//if input is a valid int exit the loop
+			}
+		}	
+		this.age = climberAge;
+		return climberAge;
 	}
 	
 	//method that asks and sets name
