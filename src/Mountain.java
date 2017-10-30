@@ -23,6 +23,8 @@ public class Mountain
 	public void SetHeight()
 	{
 		int height;
+		String inputHeight;
+		
 		out.println(
 				"Enter height in m(valid range is 5 to 8848m): ");
 		height = in.nextInt();

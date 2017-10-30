@@ -33,17 +33,7 @@ public class Climber
 	Scanner jin = new Scanner(System.in);
 	
 	//method that tries to parse string to int and returns false if it can't
-	public boolean TryParseInt(String value)
-	{
-		try {
-			Integer.parseInt(value); 
-			return true;
-		} catch (NumberFormatException e)
-		{
-			return false;
-		}
-	}
-	
+
 	//method that adds a mountain to climber's list of mountains climbed
 	public void AddMountain()
 	{
@@ -115,7 +105,7 @@ public class Climber
 		while( i == 0 )
 		{
 			//check if input is an int, keep asking if not
-			while (!TryParseInt(age))
+			while (!Util.TryParseInt(age))
 			{
 				System.out.print("Enter age (valid range is 1- 120): ");
 				age = in.next();
