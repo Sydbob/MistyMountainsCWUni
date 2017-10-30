@@ -23,7 +23,7 @@ public class Club
 		//check if the name provided is unique
 		for (int i = 0; i < climbers.size(); i++)
 		{
-			if(climbers.get(i).GetName() == newClimber.GetName())
+			if(climbers.get(i).GetName().equals(newClimber.GetName()))
 			{
 				out.println("That name is already taken. Enter a new one: ");
 				newClimber.AskName();
@@ -90,4 +90,36 @@ public class Club
 		return allMountainsHigherThanGiven;
 	}
 	
+	//method to display climbers and ID
+	public void DisplayClimbersWithID()
+	{
+		if (!climbers.isEmpty())
+		{
+			for (int i =0; i < climbers.size(); i++)
+			{
+				out.println("ID: " + i + " Climber name: " + climbers.get(i).GetName());
+			}
+		}
+		else
+		{
+			out.println("\nThere are no climbers to display");
+		}
+	}
+
+	//method to display mountains
+	public void DisplaySelectedMountains(ArrayList<Mountain> mountainsSelected)
+	{
+		if (!mountainsSelected.isEmpty())
+		{
+			out.println("\n\nDisplaying selected mountains: ");
+			for (int i=0; i< mountainsSelected.size(); i++)
+			{
+				out.println(mountainsSelected.get(i).GetName() + " (" + mountainsSelected.get(i).GetHeight() + "m heigh)");
+			}
+		}
+		else
+		{
+			out.println("\nThere are no mountains to display");
+		}
+	}
 }

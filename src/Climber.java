@@ -30,7 +30,8 @@ public class Climber
 	private ArrayList<Mountain> mountains = new ArrayList<Mountain>();
 	
 	Scanner in = new Scanner(System.in);
-
+	Scanner jin = new Scanner(System.in);
+	
 	//method that adds a mountain to climber's list of mountains climbed
 	public void AddMountain()
 	{
@@ -109,7 +110,7 @@ public class Climber
 	{
 		String name = "";
 		System.out.println("Enter your name: ");
-		name= in.nextLine();
+		name = jin.nextLine();
 		this.name = name;
 		return name;
 	}
