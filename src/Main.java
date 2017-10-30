@@ -1,4 +1,5 @@
 //Misty mountains university project. Main class.
+
 import static java.lang.System.*;
 import java.util.Scanner;
 
@@ -63,9 +64,11 @@ public class Main
 				do {
 					out.println( "\nDisplaying a list of currently exisiting climbers: ");
 					club.DisplayClimbersWithID();
-					out.println( "Which climber would you like to add a mountain  to? [enter ID]: ");
+					out.println( "To add mountain to a climber enter climber ID ");
+					out.print("\nTo go back to main menu enter 'x'. Your selection: ");
 					int id = 0;
 					id = in.nextInt();
+					String exit = "";
 					//check if id is valid here
 					while (id >= club.GetClimbers().size())
 					{

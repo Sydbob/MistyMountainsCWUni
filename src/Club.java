@@ -68,7 +68,7 @@ public class Club
 		//add all climber mountains to an array list
 		for(int i =0; i < climbers.size(); i++ )
 		{
-			for (int k = 0; k< climbers.get(i).GetMountains().size(); k++)
+			for (int k = 0; k < climbers.get(i).GetMountains().size(); k++)
 			{
 				allDocumentedMountains.add(climbers.get(i).GetMountains().get(k));
 			}
