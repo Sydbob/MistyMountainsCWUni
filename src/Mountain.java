@@ -41,7 +41,7 @@ public class Mountain
 	{
 		String name; 
 		out.println("Enter mountain name: ");
-		name= in.nextLine();
+		name= in.nextLine().trim();
 		this.name = name;
 	}
 	

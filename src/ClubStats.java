@@ -64,7 +64,7 @@ public class ClubStats
 		do
 		{
 			out.print(question + "(y/n): ");
-			answer = in.next().charAt(0);
+			answer = in.next().trim().toLowerCase().charAt(0);
 		} while (answer != 'y' && answer != 'n');
 		return answer;
 	}

@@ -80,12 +80,12 @@ public class Climber
 	{
 		char gender;
 		System.out.println("Enter gender('f' = female; 'm' = male; 'o'= other, 'r' = refuse to answer): ");
-		gender = in.next().charAt(0);
+		gender = in.next().trim().toLowerCase().charAt(0);
 		//keep asking until gender is valid
 		while(gender != 'f' && gender != 'm' && gender != 'o' && gender != 'r')
 		{
 			System.out.println("Enter gender('f' = female; 'm' = male; 'o'= other, 'r' = refuse to answer): ");
-			gender = in.next().charAt(0);
+			gender = in.next().trim().toLowerCase().charAt(0);
 		}
 		this.gender = gender;
 		return gender;
@@ -133,7 +133,7 @@ public class Climber
 	{
 		String name = "";
 		System.out.println("Enter your name: ");
-		name = jin.nextLine();
+		name = jin.nextLine().trim();
 		this.name = name;
 		return name;
 	}
