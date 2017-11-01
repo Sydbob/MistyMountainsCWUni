@@ -23,7 +23,7 @@ public class Club
 		//check if the name provided is unique
 		for (int i = 0; i < climbers.size(); i++)
 		{
-			if(climbers.get(i).GetName().equals(newClimber.GetName()))
+			if(climbers.get(i).GetName().trim().toLowerCase().equals(newClimber.GetName().trim().toLowerCase()))
 			{
 				out.println("That name is already taken. Enter a new one: ");
 				newClimber.AskName();
@@ -35,6 +35,8 @@ public class Club
 	//method that finds a climber with highest average height climbed in the club
 	public Climber ClimberWithHighestAverage()
 	{
+		if (!climbers.isEmpty())
+		{
 		int highestAverageIndex= 0;
 		for (int i = 0; i < climbers.size(); i++)
 		{
@@ -45,6 +47,11 @@ public class Club
 			}
 		}
 		return climbers.get(highestAverageIndex);
+		}
+		else
+		{
+			return null;
+		}
 	}
 	
 	//method that finds  climber with highest climbed mountain in the club
@@ -65,6 +72,7 @@ public class Club
 	public ArrayList<Mountain> MountainsHigherThanGiven()
 	{
 		int minHeight;
+		String inputMinHeight = "";
 		//add all climber mountains to an array list
 		for(int i =0; i < climbers.size(); i++ )
 		{
@@ -75,9 +83,16 @@ public class Club
 		}
 		//take input
 		out.println("Enter min height by which to filter mountains: ");
-		minHeight = in.nextInt();
-		
-		//add to a separate lst if > minHeight
+		//make sure provided input is of the right type
+		inputMinHeight = in.nextLine();
+		while (!Util.TryParseInt(inputMinHeight))
+		{
+			//ask again if it's not the right type
+			out.println("\nThat's not a number. Please enter a number!");
+			inputMinHeight = in.nextLine();
+		}
+		minHeight = Integer.parseInt(inputMinHeight);
+		//add to a separate list if > minHeight
 		for (int i = 0; i < allDocumentedMountains.size(); i++)
 		{
 			if (allDocumentedMountains.get(i).GetHeight() > minHeight)
@@ -85,7 +100,7 @@ public class Club
 				allMountainsHigherThanGiven.add(allDocumentedMountains.get(i));
 			}
 		}
-		//clear the lost to prevent issues in the future
+		//clear the list to prevent issues in the future
 		allDocumentedMountains.clear();
 		return allMountainsHigherThanGiven;
 	}
@@ -102,8 +117,9 @@ public class Club
 		}
 		else
 		{
-			out.println("\nThere are no climbers to display");
+			Util.NothingToDisplay();
 		}
+		
 	}
 
 	//method to display mountains
@@ -119,7 +135,7 @@ public class Club
 		}
 		else
 		{
-			out.println("\nThere are no mountains to display");
+			Util.NothingToDisplay();
 		}
 	}
 }

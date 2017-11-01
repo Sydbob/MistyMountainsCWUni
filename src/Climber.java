@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import static java.lang.System.*;
 
 
 public class Climber
@@ -57,11 +58,14 @@ public class Climber
 		//divide the total sum of heights to get average value
 		averageHeight = averageHeight / mountains.size();
 		return averageHeight;
+		
 	}
 	
 	//method that returns heighest mountain climbed by a climber
 	public Mountain HighestMountain()
 	{
+		if (!mountains.isEmpty())
+		{	
 		int highestPosIndex = 0;
 		for (int i = 0; i < mountains.size(); i++)
 		{
@@ -73,69 +77,81 @@ public class Climber
 		}
 		highestMountainHeight = mountains.get(highestPosIndex).GetHeight();
 		return mountains.get(highestPosIndex);
+		}
+		else
+		{
+			return null;
+		}
 	}
 	
 	//method that asks and sets climber gender
-	public char AskGender()
+	public void AskGender()
 	{
-		char gender;
-		System.out.println("Enter gender('f' = female; 'm' = male; 'o'= other, 'r' = refuse to answer): ");
-		gender = in.next().trim().toLowerCase().charAt(0);
+		String gender = "";
+		boolean valid = false;
 		//keep asking until gender is valid
-		while(gender != 'f' && gender != 'm' && gender != 'o' && gender != 'r')
+		while(!valid)
 		{
-			System.out.println("Enter gender('f' = female; 'm' = male; 'o'= other, 'r' = refuse to answer): ");
-			gender = in.next().trim().toLowerCase().charAt(0);
+			out.println("Enter gender('f' = female; 'm' = male; 'o'= other, 'r' = refuse to answer): ");
+			//read the input, remove whitespaces and convert to lower case
+			gender = in.next().trim().toLowerCase();
+			//if input is not valid go back to start of the loop
+			if (gender.equals("f") || gender.equals("m") || gender.equals("r") || gender.equals("o"))
+			{
+				valid= true;
+			}
+			else
+			{
+				//exit the loop if input is valid
+				valid = false;
+			}
+			
 		}
-		this.gender = gender;
-		return gender;
-		
+		this.gender = gender.charAt(0);		
 	}
 
 	//method that asks and sets climber's age
-	public int AskAge()
+	public void AskAge()
 	{
 		String age;
 		int climberAge = 0;
-		int i =0;
+		boolean valid = false;;
 		
-		System.out.println("Enter age (valid range is 1 - 120): ");
+		out.println("Enter age (valid range is 1 - 120): ");
 		age = in.next();
 		//a loop that will check validity of the input, 0 = input not valid
-		while( i == 0 )
+		while(!valid)
 		{
 			//check if input is an int, keep asking if not
 			while (!Util.TryParseInt(age))
 			{
-				System.out.print("Enter age (valid range is 1- 120): ");
+				out.print("Enter age (valid range is 1- 120): ");
 				age = in.next();
 			}
 			//if it's valid input, first convert age to int 
 			climberAge = Integer.parseInt(age);
 			//check if it's in valid range
-			if (climberAge < 0 || climberAge > 120)
+			if (climberAge < 0 || climberAge >= 120)
 			{
-				System.out.print("Enter age (valid range is 1- 120): ");
+				out.print("Enter age (valid range is 1- 120): ");
 				age = in.next();
-				i = 0; //if range is not valid back to start of the loop
+				valid = false; //if range is not valid back to start of the loop
 			}
 			else
 			{
-				i = 1;//if input is a valid int exit the loop
+				valid = true;//if input is a valid int exit the loop
 			}
 		}	
 		this.age = climberAge;
-		return climberAge;
 	}
 	
 	//method that asks and sets name
-	public String AskName()
+	public void AskName()
 	{
 		String name = "";
-		System.out.println("Enter your name: ");
+		out.println("Enter your name: ");
 		name = jin.nextLine().trim();
 		this.name = name;
-		return name;
 	}
 	
 	//method to ask climber for info
@@ -146,12 +162,12 @@ public class Climber
 		AskGender();
 	}
 	
-	//method tht displays climbers age, name and gender
+	//method that displays climbers age, name and gender
 	public void DisplayInfo()
 	{
-		System.out.println(name);
-		System.out.println(age);
-		System.out.println(gender);
+		out.println(name);
+		out.println(age);
+		out.println(gender);
 	}
 	
 	//method for displaying mountains
@@ -162,13 +178,13 @@ public class Climber
 		{
 			for (int i = 0; i < mountains.size(); i++)
 			{
-				System.out.println("Mountain name: " + mountains.get(i).GetName());
-				System.out.println("Mountain height: " + mountains.get(i).GetHeight());
+				out.println("Mountain name: " + mountains.get(i).GetName());
+				out.println("Mountain height: " + mountains.get(i).GetHeight());
 			}
 		}
 		else
 		{
-			System.out.println("There are no mountains to display");
+			out.println("There are no mountains to display that are higher than your input");
 		}
 	}
 	
@@ -176,7 +192,7 @@ public class Climber
 	public ArrayList<Mountain> MountainsGreaterThan()
 	{
 		mountainsGreaterThan.clear();
-		System.out.println("Enter min height by which to filter mountains: ");
+		out.println("Enter min height by which to filter mountains: ");
 		int minHeight= in.nextInt();
 		
 		//filter mountains higher than minHeight
