@@ -1,9 +1,50 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Util
 {
 	
 	Util(){};
+	public static Scanner in = new Scanner(System.in);
+	
+	public static int ValidateInt (String value, String errorText, int minRange, int maxRange)
+	{
+		int parsedValue = 0; 
+		boolean valid = false;
+		boolean parsed = false;
+		while (!valid)
+		{
+			while(!parsed)
+			{
+				try
+				{
+					Integer.parseInt(value);
+					parsed = true;
+				}
+				catch (NumberFormatException e)
+				{
+					System.out.print(errorText + "(valid range is "+ minRange + "-" + maxRange + ")");
+					value ="";
+					value = in.next();
+					parsed= false;
+				}
+			}
+		
+			parsedValue = Integer.parseInt(value);
+			if (parsedValue < minRange || parsedValue >= maxRange)
+			{
+				System.out.println(errorText + "(valid range is "+ minRange + "-" + maxRange + ")");
+				value = "";
+				value = in.next();
+				valid = false;
+			}
+			else
+			{
+				valid = true;
+			}
+		}
+		return parsedValue;
+	}
 	
 	// method that tries to parse string to int and returns false if it can't
 	public static boolean TryParseInt(String value)

@@ -115,33 +115,11 @@ public class Climber
 	{
 		String age;
 		int climberAge = 0;
-		boolean valid = false;;
 		
 		out.println("Enter age (valid range is 1 - 120): ");
 		age = in.next();
-		//a loop that will check validity of the input, 0 = input not valid
-		while(!valid)
-		{
-			//check if input is an int, keep asking if not
-			while (!Util.TryParseInt(age))
-			{
-				out.print("Enter age (valid range is 1- 120): ");
-				age = in.next();
-			}
-			//if it's valid input, first convert age to int 
-			climberAge = Integer.parseInt(age);
-			//check if it's in valid range
-			if (climberAge < 0 || climberAge >= 120)
-			{
-				out.print("Enter age (valid range is 1- 120): ");
-				age = in.next();
-				valid = false; //if range is not valid back to start of the loop
-			}
-			else
-			{
-				valid = true;//if input is a valid int exit the loop
-			}
-		}	
+		//a method that will check validity of the input (both for valid range and valid type)
+		climberAge = Util.ValidateInt(age, "Enter age ", 1, 120);
 		this.age = climberAge;
 	}
 	
