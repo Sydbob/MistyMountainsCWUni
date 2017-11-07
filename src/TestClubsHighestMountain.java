@@ -2,6 +2,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+
 class TestClubsHighestMountain {
 	private Climber testC1 = new Climber(20, "bob", 'm' );
 	private Climber testC2 = new Climber(45, "mary", 'f');

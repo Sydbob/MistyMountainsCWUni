@@ -1,8 +1,10 @@
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
 import java.util.ArrayList;
 
 
-import org.junit.Test;
 
 public class TestMountainsGreaterThan {
 	private Mountain mount1 = new Mountain("m1", 20);
