@@ -24,31 +24,8 @@ public class Mountain
 	{
 		String height = "";
 		int inputHeight = 0;
-		boolean valid = false;
-		while (!valid)
-		{
-			//check if input is of the right data type
-			while (!Util.TryParseInt(height))
-			{
-				out.println("Enter height in m(valid range is 5 to 8848m): ");
-				height = in.next();
-			}
-			//also check if input is in the valid range
-			//there are no mountains higher that 8848m (according to google search data)
-			inputHeight = Integer.parseInt(height);
-			if (inputHeight < 5 || inputHeight > 8848)
-			{
-				out.println("That's not a valid number. Valid numbers are from 5 to 8848:");
-				height = in.next();
-				valid = false;
-			}
-			else
-			{
-				//exit the loop if input is valid
-				valid = true;
-			}
-				
-		}
+		//a method that will check validity of the input (both for valid range and valid type)
+		inputHeight = Util.ValidateInt(height, "Enter mountain height ", 5, 8848);
 		this.height= inputHeight;
 	}
 	

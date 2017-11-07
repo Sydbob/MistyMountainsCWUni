@@ -48,32 +48,11 @@ public class ClubStats
 	public void AskMenuOption()
 	{
 		String userInput = "";
-		int menuChoice = 0; 
-		boolean valid = false;
 		out.print("Choose an option (0/1/2/3): ");
 		userInput = in.nextLine().trim();
-		while (!valid)
-		{
-			//check if input is an int
-			while (!Util.TryParseInt(userInput))
-			{
-			out.print("\nThat's not a valid option. Valid options are: 0, 1, 2, 3. Pick an option:");
-			userInput = in.nextLine();
-			}
-			menuChoice = Integer.parseInt(userInput);
-			//check if range is valid
-			if (menuChoice < 0 || menuChoice > 3)
-			{
-				out.println("\nNot a valid option. Valid options are 0/1/2/3. Choose a valid option: ");
-				userInput = in.nextLine();
-				valid = false;
-			}
-			else
-			{
-				valid = true;
-			}
-		}
-		userOptionChoice = menuChoice;
+		//a method that will check validity of the input (both for valid range and valid type)
+		userOptionChoice = Util.ValidateInt(userInput, "Choose an option ", 0, 3);
+		
 	}
 	
 	//method that will ask yes/no and return a y/n char

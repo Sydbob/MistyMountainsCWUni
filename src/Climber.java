@@ -117,7 +117,7 @@ public class Climber
 		int climberAge = 0;
 		
 		out.println("Enter age (valid range is 1 - 120): ");
-		age = in.next();
+		age = in.nextLine();
 		//a method that will check validity of the input (both for valid range and valid type)
 		climberAge = Util.ValidateInt(age, "Enter age ", 1, 120);
 		this.age = climberAge;

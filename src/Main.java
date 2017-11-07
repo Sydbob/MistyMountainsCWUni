@@ -11,22 +11,7 @@ public class Main
 		Club club = new Club();
 		ClubStats clubStats = new ClubStats();
 		Scanner in = new Scanner(System.in);
-		/*
-		//making a few dummy climbers for easier testing
-		club.GetClimbers().add(new Climber(20, "iri", 'f'));
-		club.GetClimbers().add(new Climber(30, "ric", 'm'));
-		//making a few dummy mountains
-		club.GetClimbers().get(0).GetMountains().add(new Mountain("low", 20));
-		club.GetClimbers().get(0).GetMountains().add(new Mountain("high", 4000));
-		club.GetClimbers().get(1).GetMountains().add(new Mountain("mid1", 3000));
-		club.GetClimbers().get(1).GetMountains().add(new Mountain("mid2", 3500));
-		//calculating average heights and highest mountains for dummy climbers
-		club.GetClimbers().get(0).AverageHeight();
-		club.GetClimbers().get(1).AverageHeight();
-		club.GetClimbers().get(0).HighestMountain();
-		club.GetClimbers().get(1).HighestMountain();
-		*/
-		
+			
 		clubStats.WelcomeMessage();
 		clubStats.SetExitApplication(1);
 		

@@ -85,13 +85,8 @@ public class Club
 		out.println("Enter min height by which to filter mountains: ");
 		//make sure provided input is of the right type
 		inputMinHeight = in.nextLine();
-		while (!Util.TryParseInt(inputMinHeight))
-		{
-			//ask again if it's not the right type
-			out.println("\nThat's not a number. Please enter a number!");
-			inputMinHeight = in.nextLine();
-		}
-		minHeight = Integer.parseInt(inputMinHeight);
+		//a method that will check validity of the input (both for valid range and valid type)
+		minHeight = Util.ValidateInt(inputMinHeight, "Enter minimum height by which to filter mountains ", 0, 8848);
 		//add to a separate list if > minHeight
 		for (int i = 0; i < allDocumentedMountains.size(); i++)
 		{

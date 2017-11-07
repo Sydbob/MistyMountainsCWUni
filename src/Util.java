@@ -23,20 +23,18 @@ public class Util
 				}
 				catch (NumberFormatException e)
 				{
-					System.out.print(errorText + "(valid range is "+ minRange + "-" + maxRange + ")");
-					value ="";
-					value = in.next();
+					System.out.print(errorText + "(valid range is "+ minRange + "-" + maxRange + "): ");
+					value = in.nextLine();
 					parsed= false;
 				}
 			}
-		
 			parsedValue = Integer.parseInt(value);
-			if (parsedValue < minRange || parsedValue >= maxRange)
+			if (parsedValue < minRange || parsedValue > maxRange)
 			{
-				System.out.println(errorText + "(valid range is "+ minRange + "-" + maxRange + ")");
-				value = "";
-				value = in.next();
+				System.out.print(errorText + "(valid range is "+ minRange + "-" + maxRange + "): ");
+				value = in.nextLine();
 				valid = false;
+				parsed = false;
 			}
 			else
 			{
