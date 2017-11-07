@@ -56,32 +56,10 @@ public class Main
 					out.println( "To add mountain to a climber enter climber ID ");
 					int id = 0;
 					String inputId = "";
-					boolean valid = false;
 					inputId = in.nextLine();
-					//check if input is an int, if it's not keep asking until it is
-					while(!valid)
-					{
-						//make sure entered id is an int
-						while(!Util.TryParseInt(inputId))
-						{
-							out.println("That's not a valid ID. Enter a vaid ID: ");
-							inputId = in.nextLine();
-						}
-						id = Integer.parseInt(inputId);
-						//check if id range is valid 
-						if (id >= club.GetClimbers().size() || id < 0)
-						{
-							out.println( "\nThat's not a valid ID. Enter valid ID: ");
-							inputId = in.nextLine();
-							valid = false; // back to start of the loop if id is not valid
-						}
-						else
-						{
-							//exit the loop if id is valid
-							valid = true;
-						}
-					}
-					//add the mountain to the climber and ask if they'd liek to add another
+					//check if input is an int,, as well as if range is valid
+					id = Util.ValidateInt(inputId, "Not a valid ID, enter valid ID", 0, (club.GetClimbers().size() -1) );
+					//add the mountain to the climber and ask if they'd like to add another
 					club.GetClimbers().get(id).AddMountain();
 					userResponce = clubStats.AskYesNo("Would you like to add another mountain?");
 					} while (userResponce == 'y');

@@ -12,10 +12,12 @@ public class Mountain
 	public Mountain(){};
 	
 	String GetName() {return name; }
-	int GetHeight() {return height;}
+	int GetHeight() {return height; }
 	
 	private String name;
 	private int height;
+	public static final int MIN_HEIGHT = 5;
+	public static final int MAX_HEIGHT = 8848;
 	
 	Scanner in = new Scanner(System.in);
 	
@@ -24,8 +26,8 @@ public class Mountain
 	{
 		String height = "";
 		int inputHeight = 0;
-		//a method that will check validity of the input (both for valid range and valid type)
-		inputHeight = Util.ValidateInt(height, "Enter mountain height ", 5, 8848);
+		//check validity of the input (both for valid range and valid type)
+		inputHeight = Util.ValidateInt(height, "Enter mountain height ", MIN_HEIGHT, MAX_HEIGHT);
 		this.height= inputHeight;
 	}
 	

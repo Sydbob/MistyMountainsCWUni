@@ -82,11 +82,12 @@ public class Club
 			}
 		}
 		//take input
-		out.println("Enter min height by which to filter mountains: ");
+		out.println("Enter min height by which to filter mountains (valid range is " + Mountain.MIN_HEIGHT + "-" + Mountain.MAX_HEIGHT + "): ");
 		//make sure provided input is of the right type
 		inputMinHeight = in.nextLine();
+		
 		//a method that will check validity of the input (both for valid range and valid type)
-		minHeight = Util.ValidateInt(inputMinHeight, "Enter minimum height by which to filter mountains ", 0, 8848);
+		minHeight = Util.ValidateInt(inputMinHeight, "Enter minimum height by which to filter mountains ", Mountain.MIN_HEIGHT, Mountain.MAX_HEIGHT);
 		//add to a separate list if > minHeight
 		for (int i = 0; i < allDocumentedMountains.size(); i++)
 		{

@@ -9,6 +9,8 @@ public class ClubStats
 	public void SetExitApplication(int value){exitApplication = value;}
 	public int GetExitApplication() {return exitApplication;}
 	public int GetUserOption(){return userOptionChoice;}
+	public static final int MIN_OPT = 0 ;
+	public static final int MAX_OPT = 3;
 	
 	private int userOptionChoice;
 	private int exitApplication;
@@ -48,10 +50,10 @@ public class ClubStats
 	public void AskMenuOption()
 	{
 		String userInput = "";
-		out.print("Choose an option (0/1/2/3): ");
+		out.print("Choose an option between " + MIN_OPT + " and " + MAX_OPT + ": ");
 		userInput = in.nextLine().trim();
 		//a method that will check validity of the input (both for valid range and valid type)
-		userOptionChoice = Util.ValidateInt(userInput, "Choose an option ", 0, 3);
+		userOptionChoice = Util.ValidateInt(userInput, "Choose an option ", MIN_OPT, MAX_OPT);
 		
 	}
 	

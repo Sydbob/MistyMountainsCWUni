@@ -27,6 +27,8 @@ public class Climber
 	private char gender;
 	private float averageHeight;
 	private int highestMountainHeight;
+	private static final int MIN_AGE = 1;
+	private static final int MAX_AGE = 120;
 	private ArrayList<Mountain> mountainsGreaterThan = new ArrayList<Mountain>();
 	private ArrayList<Mountain> mountains = new ArrayList<Mountain>();
 	
@@ -94,7 +96,7 @@ public class Climber
 		{
 			out.println("Enter gender('f' = female; 'm' = male; 'o'= other, 'r' = refuse to answer): ");
 			//read the input, remove whitespaces and convert to lower case
-			gender = in.next().trim().toLowerCase();
+			gender = in.nextLine().trim().toLowerCase();
 			//if input is not valid go back to start of the loop
 			if (gender.equals("f") || gender.equals("m") || gender.equals("r") || gender.equals("o"))
 			{
@@ -115,11 +117,10 @@ public class Climber
 	{
 		String age;
 		int climberAge = 0;
-		
-		out.println("Enter age (valid range is 1 - 120): ");
+		out.println("Enter age (valid range is " + MIN_AGE + "-" + MAX_AGE + "): ");
 		age = in.nextLine();
-		//a method that will check validity of the input (both for valid range and valid type)
-		climberAge = Util.ValidateInt(age, "Enter age ", 1, 120);
+		//check validity of the input (both for valid range and valid type)
+		climberAge = Util.ValidateInt(age, "Enter age ", MIN_AGE, MAX_AGE);
 		this.age = climberAge;
 	}
 	
@@ -171,7 +172,10 @@ public class Climber
 	{
 		mountainsGreaterThan.clear();
 		out.println("Enter min height by which to filter mountains: ");
-		int minHeight= in.nextInt();
+		int minHeight= 0;
+		String heightIn = in.nextLine();
+		minHeight = Util.ValidateInt(heightIn, "Enter valid min height", Mountain.MIN_HEIGHT, Mountain.MAX_HEIGHT);
+		
 		
 		//filter mountains higher than minHeight
 		for (int i = 0; i < mountains.size(); i++)
