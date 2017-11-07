@@ -168,15 +168,9 @@ public class Climber
 	}
 	
 	//method that filters and returns mountains greater than a given height
-	public ArrayList<Mountain> MountainsGreaterThan()
+	public ArrayList<Mountain> MountainsGreaterThan(int minHeight)
 	{
 		mountainsGreaterThan.clear();
-		out.println("Enter min height by which to filter mountains: ");
-		int minHeight= 0;
-		String heightIn = in.nextLine();
-		minHeight = Util.ValidateInt(heightIn, "Enter valid min height", Mountain.MIN_HEIGHT, Mountain.MAX_HEIGHT);
-		
-		
 		//filter mountains higher than minHeight
 		for (int i = 0; i < mountains.size(); i++)
 		{
@@ -185,7 +179,14 @@ public class Climber
 				mountainsGreaterThan.add(mountains.get(i));
 			}
 		}
+		if (mountainsGreaterThan.isEmpty())
+		{
+			return null;
+		}
+		else 
+		{
 		return mountainsGreaterThan;
+		}
 	}
 	
 }
