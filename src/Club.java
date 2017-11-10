@@ -69,10 +69,11 @@ public class Club
 	}
 	
 	//method that selects and returns all mountains higher than given level(user input)
-	public ArrayList<Mountain> MountainsHigherThanGiven()
+	public void MountainsHigherThanGiven()
 	{
 		int minHeight;
 		String inputMinHeight = "";
+		allMountainsHigherThanGiven.clear();
 		//add all climber mountains to an array list
 		for(int i =0; i < climbers.size(); i++ )
 		{
@@ -91,14 +92,13 @@ public class Club
 		//add to a separate list if > minHeight
 		for (int i = 0; i < allDocumentedMountains.size(); i++)
 		{
-			if (allDocumentedMountains.get(i).GetHeight() > minHeight)
+			if (allDocumentedMountains.get(i).GetHeight() >= minHeight)
 			{
 				allMountainsHigherThanGiven.add(allDocumentedMountains.get(i));
 			}
 		}
 		//clear the list to prevent issues in the future
-		allDocumentedMountains.clear();
-		return allMountainsHigherThanGiven;
+		allDocumentedMountains.clear();	
 	}
 	
 	//method to display climbers and ID
