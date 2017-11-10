@@ -35,9 +35,10 @@ public class Climber
 	Scanner in = new Scanner(System.in);
 	Scanner jin = new Scanner(System.in);
 	
-	//method that tries to parse string to int and returns false if it can't
-
-	//method that adds a mountain to climber's list of mountains climbed
+	/**
+	 * Method that adds a mountain to climber's list of mountains climbed.
+	 * It also updates climber's highest mountain and average height climbed.
+	 */
 	public void AddMountain()
 	{
 		Mountain newMountain = new Mountain();
@@ -48,7 +49,11 @@ public class Climber
 		HighestMountain();
 	}
 	
-	//method that calculates and returns climbers average height climbed
+	
+	/**
+	 * method that calculates and returns climbers average height climbed
+	 * @return return average height (float)
+	 */
 	public float AverageHeight()
 	{
 		averageHeight =0;
@@ -63,7 +68,11 @@ public class Climber
 		
 	}
 	
-	//method that returns heighest mountain climbed by a climber
+
+	/**
+	 * Method that returns highest mountain climbed by a climber
+	 * @return Returns highest mountain (Mountain-type object)
+	 */
 	public Mountain HighestMountain()
 	{
 		if (!mountains.isEmpty())
@@ -86,7 +95,10 @@ public class Climber
 		}
 	}
 	
-	//method that asks and sets climber gender
+	
+	/**
+	 * Method that asks and sets climber's gender
+	 */
 	public void AskGender()
 	{
 		String gender = "";
@@ -112,7 +124,10 @@ public class Climber
 		this.gender = gender.charAt(0);		
 	}
 
-	//method that asks and sets climber's age
+
+	/**
+	 * Method that asks and sets climber's age
+	 */
 	public void AskAge()
 	{
 		String age;
@@ -124,7 +139,10 @@ public class Climber
 		this.age = climberAge;
 	}
 	
-	//method that asks and sets name
+	
+	/**
+	 * method that asks and sets name
+	 */
 	public void AskName()
 	{
 		String name = "";
@@ -132,8 +150,10 @@ public class Climber
 		name = jin.nextLine().trim();
 		this.name = name;
 	}
-	
-	//method to ask climber for info
+
+	/**
+	 * method to ask climber for info
+	 */
 	public void AskInfo()
 	{
 		AskName();
@@ -141,7 +161,9 @@ public class Climber
 		AskGender();
 	}
 	
-	//method that displays climbers age, name and gender
+	/**
+	 * method that displays climbers age, name and gender
+	 */
 	public void DisplayInfo()
 	{
 		out.println(name);
@@ -149,7 +171,10 @@ public class Climber
 		out.println(gender);
 	}
 	
-	//method for displaying mountains
+	/**
+	 * method for displaying mountains
+	 * @param  an array list of Mountain objects to be displayed
+	 */
 	public void DisplayMountains(ArrayList<Mountain> mountains)
 	{
 		//loop through list of mountain objs and display and and height
@@ -166,8 +191,12 @@ public class Climber
 			out.println("There are no mountains to display that are higher than your input");
 		}
 	}
-	
-	//method that filters and returns mountains greater than a given height
+
+	/**
+	 * method that filters and returns mountains greater than a given height
+	 * @param minHeight (int) minimum height by which method filters the mountains
+	 * @return returns an array list of mountains that are greater than minHeight
+	 */
 	public ArrayList<Mountain> MountainsGreaterThan(int minHeight)
 	{
 		mountainsGreaterThan.clear();

@@ -1,8 +1,16 @@
-//Misty mountains university project. Main class.
 
 import static java.lang.System.*;
 import java.util.Scanner;
 
+/**
+ * Class that contains main method. 
+ * Author: Irina Kovalova S170716899 .
+ * Description: Misty Mountains win32 console application; Java CW part 1 for CSC8001 module of MSc(Computer Science).
+ * Last updated 11/10/2017 .
+ * GitHub repository: https://github.com/Sydbob/MistyMountainsCWUni/tree/master/src .
+ * Created using Eclipse Oxygen IDE.
+ * JRE: JavaSE-1.8
+ */
 public class Main 
 {
 		

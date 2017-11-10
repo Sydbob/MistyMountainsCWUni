@@ -16,8 +16,10 @@ public class ClubStats
 	private int exitApplication;
 	
 	Scanner in = new Scanner(System.in);
-	
-	//this method displays main menu
+
+	/**
+	 * this method displays main menu
+	 */
 	public void DisplayMenu()
 	{
 		out.println("\n\n			   ### MAIN MENU ###");
@@ -27,8 +29,10 @@ public class ClubStats
 		out.println("2 --> Add new mountain to an existing climber");
 		out.println("3 --> Display club statistics [will open a sub-menu with option]");
 	}
-	
-	//this method displays statistics sub-menu
+
+	/**
+	 * this method displays statistics sub-menu
+	 */
 	public void DisplayStatisticsSubMenu()
 	{
 		out.println("\n	\n			### Statistics Sub-Menu ###");
@@ -38,15 +42,19 @@ public class ClubStats
 		out.println("2--> Display highest mountain climbed by a club member");
 		out.println("3--> Display all mountains recorded with a height greater than a given level");
 	}
-	
-	//method that displays add climber sub-menu
+
+	/**
+	 * method that displays add climber sub-menu
+	 */
 	public void DisplayAddClimberMenu()
 	{
 		out.println("\n		### Add climber sub-menu##");
 		out.println("You're now in the add climber menu. Adding a climber: ");
 	}
-	
-	//method thats asks and returns an option (from 0 to 4)
+
+	/**
+	 * method thats asks and returns a menu option 
+	 */
 	public void AskMenuOption()
 	{
 		String userInput = "";
@@ -57,7 +65,11 @@ public class ClubStats
 		
 	}
 	
-	//method that will ask yes/no and return a y/n char
+	/**
+	 * method that will ask yes/no and return a y/n char
+	 * @param question (string) a question that will be displayed before asking y/n
+	 * @return returns a character 'y' or 'n'
+	 */
 	public char AskYesNo(String question)
 	{
 		String answer = "";
@@ -78,7 +90,10 @@ public class ClubStats
 		return answer.trim().toLowerCase().charAt(0);
 	}
 	
-	//method that prints out a welcome message
+
+	/*
+	 * method that prints out a welcome message
+	 */
 	public void WelcomeMessage()
 	{
 		//ascii art done by Joan Stark (taken from https://www.ascii-code.com/)

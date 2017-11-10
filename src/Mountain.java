@@ -21,7 +21,9 @@ public class Mountain
 	
 	Scanner in = new Scanner(System.in);
 	
-	//method that asks for height and sets it
+	/**
+	 * Method that asks for mountain height and sets it
+	 */
 	public void SetHeight()
 	{
 		String height = "";
@@ -31,7 +33,10 @@ public class Mountain
 		this.height= inputHeight;
 	}
 	
-	//method that asks for a name and sets it
+
+	/**
+	 * Method that asks for mountain name and sets it
+	 */
 	public void SetName()
 	{
 		String name; 

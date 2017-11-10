@@ -1,0 +1,1 @@
+typeSearchIndex = [{"p":"<Unnamed>","l":"Climber"},{"p":"<Unnamed>","l":"Club"},{"p":"<Unnamed>","l":"ClubStats"},{"p":"<Unnamed>","l":"Main"},{"p":"<Unnamed>","l":"Mountain"},{"p":"<Unnamed>","l":"TestAverageHeight"},{"p":"<Unnamed>","l":"TestMountainsGreaterThan"},{"p":"<Unnamed>","l":"Util"}]

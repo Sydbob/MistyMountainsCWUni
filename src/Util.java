@@ -1,14 +1,23 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-//a class that holds a number of global methods
+/**
+ * a class that holds a number of global methods
+ */
 public class Util
 {
 	
 	Util(){};
 	public static Scanner in = new Scanner(System.in);
 	
-	//method that validates user input: a. if it's a valid type(int), b. if it's in th valid range
+	/**
+	 * method that validates if user's input is of an int type and if it's in valid range
+	 * @param value (String) user input that will be evaluated
+	 * @param errorText (String) text to display if evaluation fails
+	 * @param minRange minimum range for the input
+	 * @param maxRange maximum range for the input
+	 * @return returns an integer
+	 */
 	public static int ValidateInt (String value, String errorText, int minRange, int maxRange)
 	{
 		int parsedValue = 0; 
@@ -50,19 +59,21 @@ public class Util
 		}
 		return parsedValue;
 	}
-	
-	// method that tries to parse string to int and returns false if it can't (doesn't check range)
-	
-	
 
-	//method that will print out error text when array lists are empty
+	/**
+	 * method that will print out error text when array lists are empty
+	 */
 	public static void NothingToDisplay ()
 	{
 		System.out.println("\nThere is nothing to display. Add a climber and/or a mountain first!");
 		System.out.println("Going back to main menu");
 	}
-	
-	//method that checks if ArrayList of climbers is empty, returns true if it is
+
+	/**
+	 * method that checks whether climber have any mountains recorded
+	 * @param climbers takes in an array list of club's climbers
+	 * @return returns true if climbers have no mountains
+	 */
 	public static boolean MountainsEmpty (ArrayList<Climber> climbers)
 	{
 		boolean empty = false;

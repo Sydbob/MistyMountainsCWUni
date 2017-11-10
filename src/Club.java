@@ -14,7 +14,9 @@ public class Club
 	
 	Scanner in = new Scanner(System.in);
 	
-	//method that adds new climber with name, age and gender user input
+	/**
+	 * Method that adds new climber with String name, int age and char gender (user input)
+	 */
 	public void AddClimber()
 	{
 		Climber newClimber = new Climber();
@@ -32,7 +34,11 @@ public class Club
 		this.climbers.add(newClimber);
 	}
 	
-	//method that finds a climber with highest average height climbed in the club
+	
+	/**
+	 * method that finds a climber with highest average height climbed in the club
+	 * @return returns a Climber-type object with highest average score
+	 */
 	public Climber ClimberWithHighestAverage()
 	{
 		if (!climbers.isEmpty())
@@ -53,8 +59,11 @@ public class Club
 			return null;
 		}
 	}
-	
-	//method that finds  climber with highest climbed mountain in the club
+
+	/**
+	 * method that finds  climber with highest climbed mountain in the club
+	 * @return returns Climber-type object with recorded highest mountain climbed
+	 */
 	public Climber ClimberWithHighestMountain()
 	{
 		int highestClimberIndex= 0;
@@ -68,7 +77,10 @@ public class Club
 		return climbers.get(highestClimberIndex);
 	}
 	
-	//method that selects and returns all mountains higher than given level(user input)
+
+	/**
+	 * method that selects and returns all mountains higher than given level(user input)
+	 */
 	public void MountainsHigherThanGiven()
 	{
 		int minHeight;
@@ -101,7 +113,10 @@ public class Club
 		allDocumentedMountains.clear();	
 	}
 	
-	//method to display climbers and ID
+
+	/**
+	 * method to display climbers and ID
+	 */
 	public void DisplayClimbersWithID()
 	{
 		if (!climbers.isEmpty())
@@ -118,7 +133,11 @@ public class Club
 		
 	}
 
-	//method to display mountains
+	
+	/**
+	 * method to display mountains
+	 * @param mountainsSelected takes in an array list of Mountain objects to display
+	 */
 	public void DisplaySelectedMountains(ArrayList<Mountain> mountainsSelected)
 	{
 		if (!mountainsSelected.isEmpty())
